@@ -114,6 +114,7 @@ public class Ventana {
 		frame.getContentPane().add(lblNewLabel_3);
 
 		JButton btnComprar = new JButton("Comprar");
+		
 		btnComprar.setBounds(232, 256, 128, 37);
 		frame.getContentPane().add(btnComprar);
 
@@ -251,8 +252,31 @@ public class Ventana {
 
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int respuesta;
+				if((respuesta = JOptionPane.showConfirmDialog(null,"¿Estás seguro?","Seleccionar una Opción", JOptionPane.YES_NO_CANCEL_OPTION))==0){
+					
+					System.exit(0);
+					
+				}
 				
-				int respuesta = JOptionPane.showConfirmDialog(null,"¿Estás seguro de que quieres continuar?","Confirmación", JOptionPane.YES_NO_CANCEL_OPTION);
+			}
+		});
+		
+		btnComprar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				if(suma==0) {
+					
+					JOptionPane.showMessageDialog(null,"Se debe seleccionar al menos un producto", "Aviso", JOptionPane.WARNING_MESSAGE);
+					
+				}	
+				
+				if(suma>0) {
+					
+					JOptionPane.showInputDialog(null, "Direccion de entrega", "Entrada");
+					
+				}
+				
 				
 			}
 		});
